@@ -14,8 +14,8 @@ class GeonameSpider(Spider):
 
     def parse(self, response):
         sel = Selector(response)
-        if not os.path.exists(ROOT_FOLDER):
-            os.mkdir(ROOT_FOLDER)
+        if not os.path.exists(OUTPUT_FOLDER_PATH):
+            os.mkdir(OUTPUT_FOLDER_PATH)
 
         FILE_XPATH = '//pre[a]/a/@href'
 
@@ -25,7 +25,7 @@ class GeonameSpider(Spider):
                 file_link = response.url+file_link
                 if '.' in file_link.split('/')[-1]:
                     file_name = file_link.split('/')[-1]
-                    file_path = os.path.join(ROOT_FOLDER, file_name)
+                    file_path = os.path.join(OUTPUT_FOLDER_PATH, file_name)
                     print "FECTHING %s"%(file_name)
                     try:
                         f = open(file_path,'w+')

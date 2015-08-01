@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import os
 
 # Scrapy settings for geoname project
 #
@@ -15,3 +16,12 @@ NEWSPIDER_MODULE = 'geoname.spiders'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'geoname (+http://www.yourdomain.com)'
+
+AUTOTHROTTLE_ENABLED = True
+
+
+# ********************************
+
+OUTPUT_FOLDER_NAME = 'OUTPUT'
+OUTPUT_FOLDER_PATH = os.path.join(os.getcwd(), OUTPUT_FOLDER_NAME)
+
